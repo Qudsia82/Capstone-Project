@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Joke Hive</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Nunito:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <main>
+        <div class="main-container">
+            <div>
+                <h1>
+                    <span class="main-heading">Ready for Some Giggles</span> 😂 <span class="main-heading"> Let's Get
+                        Started!</span>
+                </h1>
+                <p class="tag-line">
+                    Pick a category and type for guaranteed laughs! 😆
+                </p>
+
+                <form action="/submit" method="post">
+                    <div>
+                        <label for="category">Category: </label>
+                        <select name="category" id="category" class="dropdowns">
+                            <option value="Programming" <%=category==="Programming" ? "selected" : "" %>>Programming
+                            </option>
+                            <option value="Misc" <%=category==="Misc" ? "selected" : "" %>>Misc</option>
+                            <option value="Dark" <%=category==="Dark" ? "selected" : "" %>>Dark</option>
+                            <option value="Pun" <%=category==="Pun" ? "selected" : "" %>>Pun</option>
+                            <option value="Spooky" <%=category==="Spooky" ? "selected" : "" %>>Spooky</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="type">Type: </label>
+                        <select name="type" id="type" class="dropdowns">
+                            <option value="single" <%=type==="single" ? "selected" : "" %>>Single</option>
+                            <option value="twopart" <%=type==="twopart" ? "selected" : "" %>>Two part</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="dropdowns">OK</button>
+                </form>
+            </div>
+            <% if(locals.content1 && locals.content2){%>
+                <div class="card">
+                    <%= content1 %><br>
+                        <%= content2 %>
+                </div>
+                <% }else{ %>
+                    <div class="card">
+                        <%= content %>
+                    </div>
+                    <% } %>
+        </div>
+    </main>
+    <footer>
+        <h5>Thanks for visiting us</h5>
+        <p>&copy; 2025 Joke Hive | All Rights Reserved</p>
+    </footer>
+</body>
+
+</html>
